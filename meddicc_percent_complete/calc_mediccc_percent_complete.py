@@ -35,7 +35,7 @@ def get_open_opportunities():
 
 def calc_mediccc_percent_complete(df):
     # calc mediccc percent complete 
-    df["MEDICCC_Complete__c"] = (df.isnull().sum(axis=1) / 9).round(2) * 100
+    df["MEDICCC_Complete__c"] = (df.notna().sum(axis=1) / 9).round(2) * 100
     # return DataFrame with MEDICCC % Complete Column 
     return df 
 
